@@ -6,7 +6,7 @@ function Textbox({label}) {
   return (
     <>
       <div className="singleLineText">
-        <label for={label}>{label} </label>
+        <label htmlFor={label}>{label} </label>
         <input type="text" id={label} name={label}/>
       </div>
     </>
