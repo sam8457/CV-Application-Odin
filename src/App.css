@@ -5,6 +5,12 @@
   margin: 0 1rem;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .singleLineText {
   display: flex;
   flex-direction: row;
@@ -21,4 +27,8 @@
 
 .singleLineText > input {
   height: 1rem;
+}
+
+.jobButton {
+  max-width: 100px;
 }
