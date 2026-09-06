@@ -17,19 +17,22 @@ function ResumePopup(
     eduEndDate
 }
 ) {
-    console.log(firstName)
+    
+    // Todo: add array.map() for list of jobs/degrees
+    // Todo: add button to make invisible
+
     return(
       <div id='popup'>
         <h1>{firstName} {lastName}</h1>
         <p>{email}</p>
 
-        <h2>Work Experience</h2>
-        <p>{workStartDate} - {workEndDate}</p>
-        <p>{title} at {company}</p>
+        <h2 className='child'>Work Experience</h2>
+        <p className='child'>{workStartDate} - {workEndDate}</p>
+        <p className='child'>{title} at {company}</p>
 
-        <h2>Education</h2>
-        <p>{eduStartDate} - {eduEndDate}</p>
-        <p>{degree} at {school}
+        <h2 className='child'>Education</h2>
+        <p className='child'>{eduStartDate} - {eduEndDate}</p>
+        <p className='child'>{degree} at {school}
         </p>
       </div>
     );

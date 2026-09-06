@@ -7,7 +7,9 @@ import ResumePopup from './components/ResumePopup.jsx'
 
 function App() {
   
-  // Todo: add resume screen/popup
+  // Todo: submit data from fields to popup
+  // Todo: change visibility of popup via buttons
+  // Todo: align text boxes better
 
   const [jobsList, jobsUpdater] = useState(
     [0]

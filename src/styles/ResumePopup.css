@@ -1,10 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
 #popup {
     position: absolute;
     align-self: center;
     justify-self: center;
     background-color: white;
+
+    width: 80vw;
+    margin-top: 10vh;
+
+    padding: 10px;
 }
 
 #popup > * {
     color: black;
+}
+
+#popup > h1 {
+    margin-bottom: 6px;
+}
+
+#popup > h2 {
+    margin-top: 12px;
+}
+
+.child {
+    text-align: left;
 }
