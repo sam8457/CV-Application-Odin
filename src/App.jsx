@@ -5,12 +5,23 @@ import Job from './components/Job.jsx'
 
 function App() {
   
-  // Todo: build job list from jobList variable
   const [jobsList, jobsUpdater] = useState(
-    [<Job/>]
+    [0]
   );
 
-  // Todo: add job add/remove functionality
+  function addJob() {
+    const id = crypto.randomUUID();
+    jobsUpdater([...jobsList, id]);
+    console.log("add job");
+  }
+
+  // Todo: add remove button on per-job basis
+  function removeJob(removedJob) {
+    const newJobs = jobsList.slice(0,jobsList.length - 1);
+    jobsUpdater(newJobs);
+    console.log("removeJob")
+  }
+
   return (
     <>
       <div id="header">
@@ -18,15 +29,17 @@ function App() {
         <h1>Logo</h1>
       </div>
       <div id="main">
-        <h1>General Info</h1>
+        <h2>General Info</h2>
         <Textbox label='First Name' />
         <Textbox label='Last Name' />
         <Textbox label='Email' />
-        <h1>Work Experience</h1>
-        <Job />
-        <button className="jobButton">Add Another</button>
+        <h2>Work Experience</h2>
+        {jobsList.map(job => <Job key={job}/>)}
+        <div id="jobButtons">
+          <button onClick={removeJob}>Remove</button>
+          <button onClick={addJob}>Add</button>
+        </div>
       </div>
-      
     </>
   )
 }
