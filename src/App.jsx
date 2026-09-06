@@ -3,6 +3,7 @@ import './App.css'
 import Textbox from './components/Textbox.jsx'
 import Job from './components/Job.jsx'
 import Edu from './components/Edu.jsx'
+import ResumePopup from './components/ResumePopup.jsx'
 
 function App() {
   
@@ -70,7 +71,22 @@ function App() {
           <button onClick={addEdu}>Add</button>
         </div>
 
+        <button>Submit</button>
       </div>
+
+      <ResumePopup 
+        firstName='John'
+        lastName='Smith'
+        email='jsmith@email.com'
+        title='Slop Cooker'
+        company='Fast Food Inc.'
+        workStartDate='1799'
+        workEndDate='2099'
+        degree='PhD. Psychology'
+        school='Harvard'
+        eduStartDate='1789'
+        eduEndDate='1799'
+      />
     </>
   )
 }

@@ -1,0 +1,10 @@
+#popup {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    background-color: white;
+}
+
+#popup > * {
+    color: black;
+}
