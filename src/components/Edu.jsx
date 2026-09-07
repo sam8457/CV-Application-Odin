@@ -5,7 +5,6 @@ import Textbox from './Textbox.jsx'
 function Edu({id, edu, updateSingleEdu}) {
 
   return (
-
     <>
       <hr />
       <Textbox

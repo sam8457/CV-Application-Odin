@@ -7,9 +7,10 @@ import ResumePopup from './components/ResumePopup.jsx'
 
 function App() {
   
-  // Todo: submit data from fields to popup
-  // Todo: change visibility of popup via buttons
+  // Todo: use definitve id's for children
+  // Todo: resolve react error messages about controlled/uncontrolled input
   // Todo: align text boxes better
+  // Todo: add remove button on per-job/edu basis
 
   const [jobsList, jobsUpdater] = useState(
     [
@@ -33,7 +34,7 @@ function App() {
     console.log("add job");
   };
 
-  // Todo: add remove button on per-job basis
+  
   function removeJob(removedJob) {
     const newJobs = jobsList.slice(0,jobsList.length - 1);
     jobsUpdater(newJobs);
