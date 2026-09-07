@@ -8,10 +8,7 @@ function ResumePopup(
     lastName,
     email,
     jobs,
-    degree,
-    school,
-    eduStartDate,
-    eduEndDate,
+    edus,
     popupVisible,
     closePopup
 }
@@ -34,9 +31,13 @@ function ResumePopup(
           );
         })}
         <h2 className='child'>Education</h2>
-        <p className='child'>{eduStartDate} - {eduEndDate}</p>
-        <p className='child'>{degree} at {school}
-        </p>
+        {edus.map( edu => {
+          return(
+            <div>
+              <p className='child'>{edu.eduStartDate} - {edu.eduEndDate}</p>
+              <p className='child'>{edu.degree} at {edu.school}</p>
+            </div>
+        )})}
 
       <button onClick={closePopup}>Close</button>
       </div>

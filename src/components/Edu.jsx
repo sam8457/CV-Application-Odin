@@ -2,15 +2,56 @@ import { useState } from 'react'
 import '../App.css'
 import Textbox from './Textbox.jsx'
 
-function Edu({label}) {
+function Edu({id, edu, updateSingleEdu}) {
 
   return (
+
     <>
       <hr />
-      <Textbox label={"Degree"}/>
-      <Textbox label={"School"}/>
-      <Textbox label={"Date Started"}/>
-      <Textbox label={"Date Ended"}/>
+      <Textbox
+        label={"Degree"}
+        value={edu.degree}
+        onChange={
+          (input) => {
+            updateSingleEdu(
+              id, 
+              {
+                ...edu,
+                degree: input
+      })}}/>
+      <Textbox 
+        label={"School"} 
+        value={edu.school}
+        onChange={
+          (input) => {
+            updateSingleEdu(
+              id,
+              {
+                ...edu,
+                school: input
+      })}}/>
+      <Textbox 
+        label={"Date Started"} 
+        value={edu.eduStartDate}
+        onChange={
+          (input) => {
+            updateSingleEdu(
+              id,
+              {
+                ...edu,
+                eduStartDate: input
+      })}}/>
+      <Textbox 
+        label={"Date Ended"} 
+        value={edu.eduEndDate}
+        onChange={
+          (input) => {
+            updateSingleEdu(
+              id,
+              {
+                ...edu,
+                eduEndDate: input
+        })}}/>
     </>
   )
 }

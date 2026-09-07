@@ -14,10 +14,10 @@ function App() {
   const [jobsList, jobsUpdater] = useState(
     [
       {
-        title: 'Slop Cooker',
-        company: 'Fast Food Inc.',
-        workStartDate: '1799',
-        workEndDate: '2099',
+        title: '',
+        company: '',
+        workStartDate: '',
+        workEndDate: '',
       },
     ]);
 
@@ -25,37 +25,49 @@ function App() {
     let newJobs = [...jobsList]
     newJobs[id] = newJob
     jobsUpdater(newJobs)
-  }
+  };
 
   function addJob() {
-    const id = crypto.randomUUID();
-    jobsUpdater([...jobsList, id]);
+    //const id = crypto.randomUUID();
+    jobsUpdater([...jobsList, {}]);
     console.log("add job");
-  }
+  };
 
   // Todo: add remove button on per-job basis
   function removeJob(removedJob) {
     const newJobs = jobsList.slice(0,jobsList.length - 1);
     jobsUpdater(newJobs);
     console.log("removeJob")
-  }
+  };
 
   const [edusList, edusUpdater] = useState(
-    [0]
-  );
+    [
+      {
+        degree: '',
+        school: '',
+        eduStartDate: '',
+        eduEndDate: '',
+      },
+    ]);
+
+  function updateSingleEdu(id, newEdu) {
+    let newEdus = [...edusList]
+    newEdus[id] = newEdu
+    edusUpdater(newEdus)
+  };
 
   function addEdu() {
-    const id = crypto.randomUUID();
-    edusUpdater([...edusList, id]);
+    //const id = crypto.randomUUID();
+    edusUpdater([...edusList, {}]);
     console.log("add Edu");
-  }
+  };
 
   // Todo: add remove button on per-edu basis
   function removeEdu(removedEdu) {
     const newEdus = edusList.slice(0,edusList.length - 1);
     edusUpdater(newEdus);
     console.log("removeEdu")
-  }
+  };
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -78,7 +90,6 @@ function App() {
         <Textbox label='Email' value={email} onChange={setEmail}/>
 
         <h2 className='sectionHeader'>Work Experience</h2>
-        
         {jobsList.map(
           (job, index) => {return(
             <Job
@@ -88,14 +99,21 @@ function App() {
             updateSingleJob={updateSingleJob}/>
           )}
         )}
-        
         <div id="jobButtons">
           <button onClick={removeJob}>Remove</button>
           <button onClick={addJob}>Add</button>
         </div>
 
         <h2 className='sectionHeader'>Education</h2>
-        {edusList.map(edu => <Edu key={edu}/>)}
+        {edusList.map(
+          (edu, index) => {return(
+            <Edu
+            key={index}
+            id={index}
+            edu={edu}
+            updateSingleEdu={updateSingleEdu}/>
+          )}
+        )}
         <div id="eduButtons">
           <button onClick={removeEdu}>Remove</button>
           <button onClick={addEdu}>Add</button>
@@ -109,10 +127,7 @@ function App() {
         lastName={lastName}
         email={email}
         jobs={jobsList}
-        degree='PhD. Psychology'
-        school='Harvard'
-        eduStartDate='1789'
-        eduEndDate='1799'
+        edus={edusList}
         popupVisible={popupVisible}
         closePopup={() => setPopupVisibility(false)}
       />

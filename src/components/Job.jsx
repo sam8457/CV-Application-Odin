@@ -17,13 +17,40 @@ function Job({id, job, updateSingleJob}) {
               {
                 ...job,
                 title: input
-              })}}
-      />
+      })}}/>
       <Textbox 
         label={"Company"} 
-      />
-      <Textbox label={"Date Started"} />
-      <Textbox label={"Date Ended"} />
+        value={job.company}
+        onChange={
+          (input) => {
+            updateSingleJob(
+              id,
+              {
+                ...job,
+                company: input
+      })}}/>
+      <Textbox 
+        label={"Date Started"} 
+        value={job.workStartDate}
+        onChange={
+          (input) => {
+            updateSingleJob(
+              id,
+              {
+                ...job,
+                workStartDate: input
+      })}}/>
+      <Textbox 
+        label={"Date Ended"} 
+        value={job.workEndDate}
+        onChange={
+          (input) => {
+            updateSingleJob(
+              id,
+              {
+                ...job,
+                workEndDate: input
+        })}}/>
     </>
   )
 }
