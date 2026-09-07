@@ -14,6 +14,14 @@
     padding: 10px;
 }
 
+.notVisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
 #popup > * {
     color: black;
 }

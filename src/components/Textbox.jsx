@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import '../App.css'
 
-function Textbox({label}) {
+function Textbox({label, value, onChange}) {
 
   return (
     <>
       <div className="singleLineText">
         <label htmlFor={label}>{label} </label>
-        <input type="text" id={label} name={label}/>
+        <input type="text" 
+        id={label} 
+        name={label} 
+        value={value} 
+        onChange={(event) => onChange(event.target.value)}/>
       </div>
     </>
   )

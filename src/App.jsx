@@ -28,7 +28,7 @@ function App() {
     console.log("removeJob")
   }
 
-    const [edusList, edusUpdater] = useState(
+  const [edusList, edusUpdater] = useState(
     [0]
   );
 
@@ -45,6 +45,12 @@ function App() {
     console.log("removeEdu")
   }
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const [popupVisible, setPopupVisibility] = useState(false);
+
   return (
     <>
       <div id="header">
@@ -55,9 +61,9 @@ function App() {
       <div id="main">
         <h2 className='sectionHeader'>General Info</h2>
         <hr />
-        <Textbox label='First Name' />
-        <Textbox label='Last Name' />
-        <Textbox label='Email' />
+        <Textbox label='First Name' value={firstName} onChange={setFirstName}/>
+        <Textbox label='Last Name' value={lastName} onChange={setLastName}/>
+        <Textbox label='Email' value={email} onChange={setEmail}/>
 
         <h2 className='sectionHeader'>Work Experience</h2>
         {jobsList.map(job => <Job key={job}/>)}
@@ -73,21 +79,26 @@ function App() {
           <button onClick={addEdu}>Add</button>
         </div>
 
-        <button>Submit</button>
+        <button onClick={() => setPopupVisibility(true)}>Submit</button>
       </div>
 
       <ResumePopup 
-        firstName='John'
-        lastName='Smith'
-        email='jsmith@email.com'
-        title='Slop Cooker'
-        company='Fast Food Inc.'
-        workStartDate='1799'
-        workEndDate='2099'
+        firstName={firstName}
+        lastName={lastName}
+        email={email}
+        jobs={[{
+          id: 0,
+          title: 'Slop Cooker',
+          company: 'Fast Food Inc.',
+          workStartDate: '1799',
+          workEndDate: '2099',
+        }]}
         degree='PhD. Psychology'
         school='Harvard'
         eduStartDate='1789'
         eduEndDate='1799'
+        popupVisible={popupVisible}
+        closePopup={() => setPopupVisibility(false)}
       />
     </>
   )
