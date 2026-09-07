@@ -14,7 +14,6 @@ function App() {
   const [jobsList, jobsUpdater] = useState(
     [
       {
-        id: 0,
         title: 'Slop Cooker',
         company: 'Fast Food Inc.',
         workStartDate: '1799',
@@ -80,17 +79,15 @@ function App() {
 
         <h2 className='sectionHeader'>Work Experience</h2>
         
-        
         {jobsList.map(
           (job, index) => {return(
             <Job
             key={index}
             id={index}
             job={job}
-            onUpdate={updateSingleJob}/>
+            updateSingleJob={updateSingleJob}/>
           )}
         )}
-        
         
         <div id="jobButtons">
           <button onClick={removeJob}>Remove</button>
