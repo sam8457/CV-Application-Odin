@@ -12,8 +12,21 @@ function App() {
   // Todo: align text boxes better
 
   const [jobsList, jobsUpdater] = useState(
-    [0]
-  );
+    [
+      {
+        id: 0,
+        title: 'Slop Cooker',
+        company: 'Fast Food Inc.',
+        workStartDate: '1799',
+        workEndDate: '2099',
+      },
+    ]);
+
+  function updateSingleJob(id, newJob) {
+    let newJobs = [...jobsList]
+    newJobs[id] = newJob
+    jobsUpdater(newJobs)
+  }
 
   function addJob() {
     const id = crypto.randomUUID();
@@ -66,7 +79,19 @@ function App() {
         <Textbox label='Email' value={email} onChange={setEmail}/>
 
         <h2 className='sectionHeader'>Work Experience</h2>
-        {jobsList.map(job => <Job key={job}/>)}
+        
+        
+        {jobsList.map(
+          (job, index) => {return(
+            <Job
+            key={index}
+            id={index}
+            job={job}
+            onUpdate={updateSingleJob}/>
+          )}
+        )}
+        
+        
         <div id="jobButtons">
           <button onClick={removeJob}>Remove</button>
           <button onClick={addJob}>Add</button>
@@ -86,13 +111,7 @@ function App() {
         firstName={firstName}
         lastName={lastName}
         email={email}
-        jobs={[{
-          id: 0,
-          title: 'Slop Cooker',
-          company: 'Fast Food Inc.',
-          workStartDate: '1799',
-          workEndDate: '2099',
-        }]}
+        jobs={jobsList}
         degree='PhD. Psychology'
         school='Harvard'
         eduStartDate='1789'
