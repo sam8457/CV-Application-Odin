@@ -63,7 +63,6 @@ function App() {
     console.log("add Edu");
   };
 
-  // Todo: add remove button on per-edu basis
   function removeEdu(removedEdu) {
     const newEdus = edusList.slice(0,edusList.length - 1);
     edusUpdater(newEdus);
