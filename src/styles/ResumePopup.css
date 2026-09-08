@@ -26,6 +26,10 @@
     color: black;
 }
 
+#popup > button {
+    color: white;
+}
+
 #popup > h1 {
     margin-bottom: 6px;
 }

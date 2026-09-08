@@ -12,8 +12,6 @@ function getLastKey(obj){
 
 function App() {
   
-  // Todo: use definitve id's for children
-  // Todo: resolve react error messages about controlled/uncontrolled input
   // Todo: align text boxes better
   // Todo: add remove button on per-job/edu basis
 

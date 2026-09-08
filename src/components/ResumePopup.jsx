@@ -14,8 +14,6 @@ function ResumePopup(
 }
 ) {
     
-    // Todo: add array.map() for list of jobs/degrees
-
     return(
       <div id='popup' className={popupVisible ? 'visible' : 'notVisible'}>
         <h1>{firstName} {lastName}</h1>
