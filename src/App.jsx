@@ -35,16 +35,18 @@ function App() {
 
   function addJob() {
     const id = crypto.randomUUID();
-    jobsUpdater({...jobsList, id:{}});
-    console.log("add job");
+    jobsUpdater({...jobsList, [id]:{
+        title: '',
+        company: '',
+        workStartDate: '',
+        workEndDate: '',
+      }});
   };
 
   function removeJob(removedId) {
-    let newJobs = jobsList;
+    let newJobs = {...jobsList};
     delete newJobs[removedId];
     jobsUpdater(newJobs);
-    console.log("removeJob")
-    console.log(jobsList);
   };
 
   const [edusList, edusUpdater] = useState(
@@ -63,15 +65,19 @@ function App() {
   };
 
   function addEdu() {
-    //const id = crypto.randomUUID();
-    edusUpdater([...edusList, {}]);
-    console.log("add Edu");
+    const id = crypto.randomUUID();
+    edusUpdater({...edusList, [id]:{
+        degree: '',
+        school: '',
+        eduStartDate: '',
+        eduEndDate: '',
+      }});
   };
 
-  function removeEdu(removedEdu) {
-    const newEdus = edusList.slice(0,edusList.length - 1);
+  function removeEdu(removedId) {
+    let newEdus = {...edusList};
+    delete newEdus[removedId];
     edusUpdater(newEdus);
-    console.log("removeEdu")
   };
 
   const [firstName, setFirstName] = useState('');
@@ -120,7 +126,7 @@ function App() {
           )}
         )}
         <div id="eduButtons">
-          <button onClick={removeEdu}>Remove</button>
+          <button onClick={() => removeEdu(getLastKey(edusList))}>Remove</button>
           <button onClick={addEdu}>Add</button>
         </div>
 
